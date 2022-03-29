@@ -104,7 +104,7 @@ let toggleMic = async (e) => {
 }
 
 let createMember = async () => {
-    let response = await fetch('/create_member/', {
+    let response = await fetch('/base/create_member/', {
         method:'POST',
         headers: {
             'Content-Type':'application/json'
@@ -117,13 +117,13 @@ let createMember = async () => {
 
 
 let getMember = async (user) => {
-    let response = await fetch(`/get_member/?UID=${user.uid}&room_name=${CHANNEL}`)
+    let response = await fetch(`/base/get_member/?UID=${user.uid}&room_name=${CHANNEL}`)
     let member = await response.json()
     return member
 }
 
 let deleteMember = async () => {
-    let response = await fetch('/delete_member/', {
+    let response = await fetch('/base/delete_member/', {
         method:'POST',
         headers: {
             'Content-Type':'application/json'

@@ -11,6 +11,13 @@ from comments.forms import CommentCreateForm, PrivateCommentForm
 
 
 @login_required
+def redirect_to_video(requests):
+    # console.log()
+    # print('nigga wat:', requests)
+    return redirect('base:lobby')
+
+
+@login_required
 def home(requests):
     teaching_classes = set(
         [classroom.classroom for classroom in requests.user.classroomteachers_set.all()])
