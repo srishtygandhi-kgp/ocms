@@ -12,6 +12,15 @@
         <div class="card bg-dark shadow p-3 mb-3 bg-white rounded">
         <img src="{% static 'mainapp/img/undraw_posting_photo.svg' %}" height="175" class="card-img" alt="...">
         <div class="card-img-overlay">
+            <div class="dropdown no-arrow float-right">
+                <a class="btn btn-circle dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-dark"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Dropdown Header:</div>
+                    <a class="dropdown-item" href="{% url 'classroom:members_classroom' content.pk %}">list of members</a>
+                </div>
+                </div>
             <h1 class="card-title"><b>{{ classroom.name }}</b></h1>
             <p class="card-text">{{ classroom.description }}</p>
             <input type="text"  value="{{ classroom.classroom_code }}" id="classroom-code">
@@ -26,7 +35,7 @@
             <div class="card-body">
                 <h5>Live class</h5>
                 <p class="card-text">{{ classroom.time_slot }}</p>
-                <a class="float-right" href="{% url 'classroom:todo' %}">Join Class</a>
+                <a class="float-right" href="{% url 'classroom:redir' %}" target="_blank">Join Class</a>
             </div>
             </div>
         </div>

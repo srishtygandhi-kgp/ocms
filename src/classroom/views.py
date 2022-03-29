@@ -11,6 +11,11 @@ from comments.forms import CommentCreateForm, PrivateCommentForm
 
 
 @login_required
+def redirect_to_video_call(requests):
+    return redirect('base:lobby')
+
+
+@login_required
 def home(requests):
     teaching_classes = set(
         [classroom.classroom for classroom in requests.user.classroomteachers_set.all()])
