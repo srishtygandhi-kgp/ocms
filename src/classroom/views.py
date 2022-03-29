@@ -65,6 +65,7 @@ def join_classroom(request):
                 classroom_code=form.cleaned_data.get('code')).first()
             if classroom:
                 request.user.classroom_set.add(classroom)
+                classroom.users.add(request.user)
                 messages.success(request, f'You are added in {classroom.name}')
             else:
                 messages.success(request, f'Error adding you to the classroom')
@@ -112,6 +113,7 @@ def members(request, pk):
         'teachers': classroom.classroomteachers_set.all(),
         'students': classroom.users.all(),
     }
+    print('[------LOG-------]', context)
     return render(request, 'classroom/members.html', context)
 
 
