@@ -5,7 +5,7 @@ app_name = 'classroom'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('fu/', views.redirect_to_video, name='fu'),
+    path('redir/', views.redirect_to_video_call, name='redir'),
     path('create/', views.create_classroom, name='create_classroom'),
     path('join/', views.join_classroom, name='join_classroom'),
     path('open/<int:pk>/', views.open_classroom, name='open_classroom'),

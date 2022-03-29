@@ -11,9 +11,7 @@ from comments.forms import CommentCreateForm, PrivateCommentForm
 
 
 @login_required
-def redirect_to_video(requests):
-    # console.log()
-    # print('nigga wat:', requests)
+def redirect_to_video_call(requests):
     return redirect('base:lobby')
 
 
