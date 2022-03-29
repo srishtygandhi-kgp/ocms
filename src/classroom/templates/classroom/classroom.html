@@ -18,7 +18,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                     <div class="dropdown-header">Dropdown Header:</div>
-                    <a class="dropdown-item" href="{% url 'classroom:members_classroom' content.pk %}">list of members</a>
+                    <a class="dropdown-item" href="{% url 'classroom:members_classroom' classroom.pk %}">list of members</a>
                 </div>
                 </div>
             <h1 class="card-title"><b>{{ classroom.name }}</b></h1>
