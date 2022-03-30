@@ -16,6 +16,17 @@ def redirect_to_video_call(requests):
 
 
 @login_required
+def viewtt(requests):
+    teaching_classes = set(
+        [classroom.classroom for classroom in requests.user.classroomteachers_set.all()])
+    classrooms = set(requests.user.classroom_set.all()).union(teaching_classes)
+    context = {
+        'classrooms': classrooms
+    }
+    return render(requests, 'classroom/timetable.html', context)
+
+
+@login_required
 def home(requests):
     teaching_classes = set(
         [classroom.classroom for classroom in requests.user.classroomteachers_set.all()])

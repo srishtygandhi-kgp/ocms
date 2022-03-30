@@ -31,6 +31,7 @@ urlpatterns = [
     path('', views.landing, name='landing-page'),
     path('base/', include('base.urls', namespace='base')),
     path('users/', include('users.urls')),
+    path('search/', include('search.urls'), name='search'),
     path('courses/', include('courses.urls')),
     path('posts/', include('posts.urls')),
     path('whiteboard/', include('whiteboard.urls')),
