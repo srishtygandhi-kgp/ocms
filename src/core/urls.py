@@ -23,9 +23,6 @@ from django.contrib.auth import views as auth_views
 
 
 from . import views
-import sys
-sys.path.append('..')
-
 
 urlpatterns = [
     path('comments', include('comments.urls')),
