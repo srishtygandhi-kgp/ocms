@@ -78,7 +78,9 @@ let leaveAndRemoveLocalStream = async () => {
     await client.leave()
     //This is somewhat of an issue because if user leaves without actaull pressing leave button, it will not trigger
     deleteMember()
-    window.open('/classroom', '_self')
+    // window.open('/classroom', '_self')
+    window.open('', '_self', '');
+    window.close();
 }
 
 let toggleCamera = async (e) => {

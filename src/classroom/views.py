@@ -16,6 +16,17 @@ def redirect_to_video_call(requests):
 
 
 @login_required
+def viewtt(requests):
+    teaching_classes = set(
+        [classroom.classroom for classroom in requests.user.classroomteachers_set.all()])
+    classrooms = set(requests.user.classroom_set.all()).union(teaching_classes)
+    context = {
+        'classrooms': classrooms
+    }
+    return render(requests, 'classroom/timetable.html', context)
+
+
+@login_required
 def home(requests):
     teaching_classes = set(
         [classroom.classroom for classroom in requests.user.classroomteachers_set.all()])
@@ -65,6 +76,7 @@ def join_classroom(request):
                 classroom_code=form.cleaned_data.get('code')).first()
             if classroom:
                 request.user.classroom_set.add(classroom)
+                classroom.users.add(request.user)
                 messages.success(request, f'You are added in {classroom.name}')
             else:
                 messages.success(request, f'Error adding you to the classroom')

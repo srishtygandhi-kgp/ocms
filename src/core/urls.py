@@ -32,12 +32,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('classroom/', include('classroom.urls')),
     path('', views.landing, name='landing-page'),
-<<<<<<< HEAD
-    path('base/', include('base.urls',  namespace='base')),
-=======
     path('base/', include('base.urls', namespace='base')),
->>>>>>> 3530de5fb90364a9cc3cfed90fbfdc0befebcb17
     path('users/', include('users.urls')),
+    path('search/', include('search.urls'), name='search'),
     path('courses/', include('courses.urls')),
     path('posts/', include('posts.urls')),
     path('whiteboard/', include('whiteboard.urls')),
