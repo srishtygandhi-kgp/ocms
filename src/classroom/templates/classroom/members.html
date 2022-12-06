@@ -15,7 +15,7 @@
       <div class="row">
         <img width="25px" height="25px" class="img-profile rounded-circle" src="{{ teacher.teacher.profile.image.url }}">
         <p class="text-dark"><a href ="#">{{ teacher.teacher.username }}</a></p>
-        <button class="ml-auto btn btn-secondary">mail</button>
+        <button class="ml-auto btn btn-secondary"><a href = "mailto: {{ teacher.teacher.email }}" style = "color:white;">mail</a></button>
       </div>
       <hr>
     {% endfor %}

@@ -66,5 +66,8 @@ def deleteMember(request):
         uid=data['UID'],
         room_name=data['room_name']
     )
-    member.delete()
-    return JsonResponse('Member deleted', safe=False)
+    if member:
+        member.delete()
+        return JsonResponse('Member deleted', safe=False)
+    else:
+        return JsonResponse('Member deleted', safe=False)
